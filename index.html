@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reframing Paradise — A Documentary Film</title>
+<meta name="description" content="Reframing Paradise follows a community of Bahamian artists and curators as they launch Fuze, the Caribbean's first regional art fair.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero{
+    position:relative;
+    height:100svh;
+    min-height:620px;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:-40px;
+    width:calc(100% + 80px); height:calc(100% + 80px);
+    object-fit:cover;
+    filter:blur(28px) brightness(0.9);
+    transform:scale(1.15);
+  }
+  .hero-poster{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:contain;
+    transform:scale(1.08);
+    animation:heroDrift 26s ease-in-out infinite alternate;
+  }
+  @keyframes heroDrift{
+    from{ transform:scale(1.08); }
+    to{ transform:scale(1.12); }
+  }
+  @media (prefers-reduced-motion:reduce){ .hero-poster{ animation:none; } }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0) 30%);
+  }
+  .below{
+    position:relative;
+    padding:110px 0 60px;
+    overflow:hidden;
+  }
+  .below .ghost{ top:20px; right:-4%; }
+  .syn{
+    font-family:'Newsreader',Georgia,serif;
+    font-weight:300;
+    font-size:clamp(23px,3vw,36px);
+    line-height:1.4;
+    max-width:840px;
+    margin:0;
+  }
+  .syn i{ font-style:italic; }
+  .cta-row{ display:flex; gap:14px; margin-top:48px; flex-wrap:wrap; }
+  /* homepage nav: solid black over the light sky */
+  .site-nav{ mix-blend-mode:normal; }
+  .site-nav ul a, .nav-toggle{ color:#0a0a0a; }
+  .site-nav ul a.active{ border-bottom-color:#0a0a0a; }
+  /* mobile menu overlay is black — flip back to white there */
+  .site-nav ul.open a{ color:#fff; }
+  .site-nav ul.open a.active{ border-bottom-color:#fff; }
+  .site-nav.menu-open .nav-toggle{ color:#fff; }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="site-nav">
+  <button class="nav-toggle">Menu</button>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trailer.html">Trailer</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <img class="hero-bg" src="assets/poster.jpg" alt="" aria-hidden="true">
+  <img class="hero-poster" src="assets/poster.jpg" alt="Reframing Paradise — an inverted palm tree hangs against an overcast sky">
+</div>
+
+<div class="below">
+  <div class="ghost">Paradise</div>
+  <div class="wrap">
+    <p class="syn">A determined community of Bahamian artists and curators reflects on their cultural history as they launch Fuze, the Caribbean’s first regional art fair - redefining global perceptions of the Bahamas beyond “sun, sand, and sea” through the power of art.</p>
+
+    <div class="cta-row">
+      <a href="trailer.html" class="btn">Watch Trailer</a>
+      <a href="about.html" class="btn ghost-btn">About the Film</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="credit-list">
+      A Baha Mar &amp; Command Your Weather Production<br>
+      In association with Fuze &amp; Nassau Paradise Island
+    </div>
+    <div class="copy">
+      <a href="https://www.instagram.com/reframingparadise" target="_blank" rel="noopener">Instagram</a> &nbsp;/&nbsp;
+      <a href="contact.html">Contact</a><br>
+      © 2026 Reframing Paradise. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

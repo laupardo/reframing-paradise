@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Reframing Paradise</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .contact-hero{ position:relative; overflow:hidden; padding-bottom:24px; }
+  .contact-hero .ghost{ top:-30px; right:-6%; }
+  .contact-hero h1 .stamp{ font-size:clamp(34px,6vw,72px); }
+  .contact-list{ margin-top:56px; border-top:1px solid var(--line); }
+  .contact-row{
+    display:flex; justify-content:space-between; align-items:center; gap:24px;
+    padding:34px 8px;
+    border-bottom:1px solid var(--line);
+    text-decoration:none;
+  }
+  .contact-row:hover .value{ color:var(--frond); }
+  .contact-row .label{
+    font-family:'Archivo',sans-serif;
+    font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--dim); flex-shrink:0;
+  }
+  .contact-row .value{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(18px,3vw,34px);
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    text-align:right;
+  }
+  .contact-row:hover .value{ color:var(--frond); }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="site-nav">
+  <a href="index.html" class="mark">REFRAMING PARADISE</a>
+  <button class="nav-toggle">Menu</button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="trailer.html">Trailer</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-body">
+  <div class="contact-hero wrap">
+    <div class="ghost">Contact</div>
+    <h1><span class="stamp">Contact</span></h1>
+  </div>
+
+  <div class="wrap">
+    <div class="contact-list">
+      <a class="contact-row" href="mailto:hello@commandyourweather.com">
+        <span class="label">General &amp; Press</span>
+        <span class="value">hello@commandyourweather.com</span>
+      </a>
+      <a class="contact-row" href="https://www.instagram.com/reframingparadise" target="_blank" rel="noopener">
+        <span class="label">Instagram</span>
+        <span class="value">@reframingparadise</span>
+      </a>
+      <a class="contact-row" href="https://www.reframingparadise.com" target="_blank" rel="noopener">
+        <span class="label">Website</span>
+        <span class="value">reframingparadise.com</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="credit-list">
+      A Baha Mar &amp; Command Your Weather Production<br>
+      In association with Fuze &amp; Nassau Paradise Island
+    </div>
+    <div class="copy">
+      <a href="https://www.instagram.com/reframingparadise" target="_blank" rel="noopener">Instagram</a> &nbsp;/&nbsp;
+      <a href="contact.html">Contact</a><br>
+      © 2026 Reframing Paradise. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>

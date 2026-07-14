@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Archivo:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap');
+
+:root{
+  --black: #0a0a0a;
+  --white: #f5f2ec;
+  --sky: #9aa7ad;
+  --frond: #b6522f;
+  --dim: #7d827e;
+  --line: rgba(245,242,236,0.14);
+  --line-strong: rgba(245,242,236,0.3);
+  --maxw: 1240px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:'Archivo', Helvetica, Arial, sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{ color:inherit; }
+img{ max-width:100%; display:block; }
+
+/* ============ DISPLAY TYPE — matched to the title logo ============ */
+h1,h2,h3,.display{
+  font-family:'Anton','Arial Narrow',sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:0.005em;
+  line-height:0.95;
+  margin:0;
+}
+
+/* The logo treatment: condensed caps in a solid bar. Two polarities. */
+.stamp{
+  display:inline-block;
+  font-family:'Anton',sans-serif;
+  text-transform:uppercase;
+  line-height:1;
+  padding:0.18em 0.35em;
+  background:var(--white);
+  color:var(--black);
+}
+.stamp.dark{ background:var(--black); color:var(--white); }
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+
+/* ============ FILM GRAIN ============ */
+.grain{
+  position:fixed; inset:-50%;
+  width:200%; height:200%;
+  pointer-events:none;
+  z-index:99;
+  opacity:0.05;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 8s steps(10) infinite;
+}
+@keyframes grain{
+  0%,100%{ transform:translate(0,0); }
+  20%{ transform:translate(-3%,2%); }
+  40%{ transform:translate(2%,-3%); }
+  60%{ transform:translate(-2%,-2%); }
+  80%{ transform:translate(3%,3%); }
+}
+@media (prefers-reduced-motion:reduce){
+  .grain{ animation:none; }
+}
+
+/* ============ NAV ============ */
+.site-nav{
+  position:fixed; top:0; left:0; right:0;
+  z-index:100;
+  display:flex; align-items:center; justify-content:flex-end;
+  padding:20px 32px;
+  mix-blend-mode:difference;
+}
+.site-nav .mark{
+  font-family:'Anton',sans-serif;
+  font-size:13px;
+  letter-spacing:0.05em;
+  text-decoration:none;
+  color:#fff;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
+.site-nav ul{ list-style:none; display:flex; gap:30px; margin:0; padding:0; }
+.site-nav ul a{
+  font-family:'Anton',sans-serif;
+  text-decoration:none;
+  color:#fff;
+  font-size:14px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  opacity:0.55;
+  transition:opacity .2s ease;
+  padding-bottom:3px;
+}
+.site-nav ul a:hover{ opacity:1; }
+.site-nav ul a.active{ opacity:1; border-bottom:1px solid #fff; }
+
+.nav-toggle{ display:none; }
+
+/* ============ FLIP — the "reframing" gesture ============ */
+.flip{
+  display:inline-block;
+  transition:transform .5s cubic-bezier(.7,0,.3,1);
+}
+.flip:hover{ transform:rotate(180deg); }
+
+/* Ghost type — giant flipped watermark */
+.ghost{
+  position:absolute;
+  font-family:'Anton',sans-serif;
+  font-size:clamp(120px,22vw,320px);
+  line-height:1;
+  text-transform:uppercase;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(245,242,236,0.07);
+  transform:rotate(180deg);
+  pointer-events:none;
+  user-select:none;
+  white-space:nowrap;
+}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-block;
+  font-family:'Anton',sans-serif;
+  font-size:15px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:14px 30px;
+  background:var(--white);
+  color:var(--black);
+  transition:background .2s ease, color .2s ease;
+}
+.btn:hover{ background:var(--frond); color:var(--white); }
+.btn.ghost-btn{
+  background:transparent;
+  color:var(--white);
+  border:1px solid var(--line-strong);
+}
+.btn.ghost-btn:hover{ background:var(--white); color:var(--black); border-color:var(--white); }
+
+/* ============ SECTIONS / FOOTER ============ */
+section{ padding:88px 0; position:relative; }
+.page-body{ padding-top:130px; }
+
+footer{
+  border-top:1px solid var(--line);
+  margin-top:60px;
+  padding:44px 32px 60px;
+}
+footer .wrap{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  flex-wrap:wrap; gap:24px;
+}
+footer .credit-list{
+  font-family:'Archivo',sans-serif;
+  font-size:12px; letter-spacing:0.03em;
+  color:var(--dim); line-height:2;
+}
+footer .copy{ font-size:12px; color:var(--dim); font-family:'Archivo',sans-serif; }
+footer a{ text-decoration:none; }
+footer a:hover{ color:var(--frond); }
+
+/* ============ MOBILE ============ */
+@media (max-width:760px){
+  .wrap{ padding:0 20px; }
+  .page-body{ padding-top:104px; }
+  .site-nav{ padding:16px 20px; }
+  .nav-toggle{
+    display:block;
+    background:none; border:0; color:#fff;
+    font-family:'Anton',sans-serif;
+    font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
+    cursor:pointer; padding:6px 0;
+  }
+  .site-nav ul{
+    position:fixed; inset:0;
+    background:var(--black);
+    flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:36px;
+    display:none;
+  }
+  .site-nav ul.open{ display:flex; }
+  .site-nav ul a{ font-size:22px; }
+  .site-nav.menu-open{ mix-blend-mode:normal; }
+}
